@@ -5,6 +5,17 @@ import scipy
 import scipy.optimize as so
 
 ## Adams-Bashforth ##
+"""
+Inputs:
+f - Differential Equation
+y0 - Initial Conditions
+t - Time Array
+h - Timestep
+k - Desired Order
+
+Outputs:
+y - Numerical solution using Explicit Adams method
+"""
 def AdamsBashforth(f, y0, t, h, k):
     y = np.zeros((len(t), y0.shape[0]))
     beta = np.zeros((5, 6))
@@ -25,7 +36,18 @@ def AdamsBashforth(f, y0, t, h, k):
             n += 1
     return y
 
+## Adams Moulton ##
+"""
+Inputs:
+f - Differential Equation
+y0 - Initial Conditions
+t - Time Array
+h - Timestep
+k - Desired Order
 
+Outputs:
+y - Numerical solution using Implicit Adams method
+"""
 def AdamsMoulton(f, y0, t, h, k):
     y = np.zeros((len(t), y0.shape[0]))
     beta = np.zeros((5, 6))
